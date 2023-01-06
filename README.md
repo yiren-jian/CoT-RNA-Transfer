@@ -1,5 +1,5 @@
 ## Overview
-This is a joint work by [Yiren Jian](https://cs.dartmouth.edu/~yirenjian/), [Chongyang Gao](https://gcyzsl.github.io/), [Yunjie Zhao](https://scholar.google.com/citations?user=nXWIMFcAAAAJ&hl=en), [Chen Zeng](https://physics.columbian.gwu.edu/chen-zeng) and [Soroush Vosoughi](https://www.cs.dartmouth.edu/~soroush/). The paper is under review.
+This is a joint work by [Yiren Jian](https://cs.dartmouth.edu/~yirenjian/), [Chongyang Gao](https://gcyzsl.github.io/), [Yunjie Zhao](http://zhaoserver.com.cn/index.html), [Chen Zeng](https://physics.columbian.gwu.edu/chen-zeng) and [Soroush Vosoughi](https://www.cs.dartmouth.edu/~soroush/). The paper is under review.
 
 ## Requirements
 
