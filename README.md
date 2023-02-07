@@ -45,7 +45,13 @@ Next, `preprocess_feats.py` will pre-extract CoT features from different layers 
 ```bash
 python preprocess_feats.py
 ```
-This process can take about 30 minutes.
+This process can take about 30 minutes, outputting four pickle files.
+```
+RNA_DATASET_PDB_DATA.pickle
+RNA_TESTSET_PDB_DATA.pickle
+RNA_DATASET_PDB_FEATS.pickle
+RNA_TESTSET_PDB_FEATS.pickle
+```
 
 The following script will train the model on the training set, pick the best model based on validation, and finally evaluate on the testing set.
 ```bash
@@ -60,6 +66,8 @@ do
     done
 done
 ```
+or simply run `bash run_experiments.sh`.
+
 The trained models are saved in `saved_models/` and the training logs are stored in `tensorboard_dir/`.  Check [this](https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server) for how to visualize training/testing loss/curve on your local machine.
 
 ## License
