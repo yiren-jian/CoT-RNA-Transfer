@@ -22,7 +22,7 @@ pip install tensorboard
 
 ## Usage
 
-The input is a RNA MSA (see [examples](RNA_TESTSET/MSA_pydca)) and the output is predicted contact scores.
+Here we provide an example of using our pretrained model for inference. The input is a RNA MSA (see [examples](RNA_TESTSET/MSA_pydca)) and the output is predicted contact scores.
 ```bash
 python run_inference.py --input_MSA RNA_TESTSET/MSA_pydca/RF00001.faclean
 ```
@@ -45,6 +45,7 @@ Next, `preprocess_feats.py` will pre-extract CoT features from different layers 
 ```bash
 python preprocess_feats.py
 ```
+This process can take about 30 minutes.
 
 The following script will train the model on the training set, pick the best model based on validation, and finally evaluate on the testing set.
 ```bash
