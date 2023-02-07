@@ -157,3 +157,31 @@ class ClassificationHead1(nn.Module):   #### 'parallel_model'
         ys = self.predictor(ys)
         return ys
 
+
+class ClassificationHead2(nn.Module):
+    def __init__(self, num_feats=7, num_classes=37, kernel_size=3, bias=False):
+        super(ClassificationHead2, self).__init__()
+        self.kernel_size = kernel_size
+        assert self.kernel_size == 3
+        self.padding = 1
+
+        self.num_feats = num_feats
+        self.num_classes = num_classes
+
+        self.conv1 = nn.Conv2d(in_channels=96*self.num_feats // 1, out_channels=96*self.num_feats // 2, kernel_size=self.kernel_size, stride=1, padding=self.padding, bias=bias)
+        self.bn1 = nn.BatchNorm2d(96*self.num_feats // 2)
+        self.conv2 = nn.Conv2d(in_channels=96*self.num_feats // 2, out_channels=96*self.num_feats // 4, kernel_size=self.kernel_size, stride=1, padding=self.padding, bias=bias)
+        self.bn2 = nn.BatchNorm2d(96*self.num_feats // 4)
+        self.conv3 = nn.Conv2d(in_channels=96*self.num_feats // 4, out_channels=96*self.num_feats // 8, kernel_size=self.kernel_size, stride=1, padding=self.padding, bias=bias)
+        self.bn3 = nn.BatchNorm2d(96*self.num_feats // 8)
+
+        self.last = nn.Conv2d(in_channels=96*self.num_feats // 8, out_channels=self.num_classes, kernel_size=self.kernel_size, stride=1, padding=self.padding, bias=bias)
+
+        self.activation = nn.ReLU()
+        # self.activation = nn.Tanh()
+
+    def forward(self, x):
+        x = self.activation(self.bn1(self.conv1(x)))
+        x = self.activation(self.bn2(self.conv2(x)))
+        x = self.activation(self.bn3(self.conv3(x)))
+        return self.last(x)

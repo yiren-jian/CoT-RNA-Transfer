@@ -38,12 +38,12 @@ The training scripts will be released soon.
 
 You will first need to translate RNA MSA from nucleotide to amino acids. For example, from `AUCG` to `HETL`.
 ```bash
-python preprocess_msa.py --AminoAicds "HETL"
+python preprocess_msa.py --AminoAcids "HETL"
 ```
 
-Next, `preprocess_feat.py` will pre-extract CoT features from different layers (inputs to the transfer model) and ground truth RNA contacts from PDBs (as ground truth labels).
+Next, `preprocess_feats.py` will pre-extract CoT features from different layers (inputs to the transfer model) and ground truth RNA contacts from PDBs (as ground truth labels).
 ```bash
-python preprocess_feat.py
+python preprocess_feats.py
 ```
 
 The following script will train the model on the training set, pick the best model based on validation, and finally evaluate on the testing set.
