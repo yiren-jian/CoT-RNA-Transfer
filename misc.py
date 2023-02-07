@@ -29,22 +29,6 @@ def get_a3m_feat(path):
     x = x.reshape((-1, L, 7 * 2 + 3)).transpose((0, 2, 1))
     assert (x < 23).all(), "Internal error"
     seq = x[0][0]
-
-    save_pred = torch.tensor(seq).long()[None].cpu()
-    name = "seq"
-    with open(name, 'wb') as handle:
-        pickle.dump(save_pred, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-    save_pred = torch.tensor(x).long()[None].cpu().numpy()
-    name = "msa"
-    with open(name, 'wb') as handle:
-        pickle.dump(save_pred, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-    save_pred = torch.arange(seq.shape[0]).long()[None].cpu().numpy()
-    name = "index"
-    with open(name, 'wb') as handle:
-        pickle.dump(save_pred, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
     return {
         "seq": torch.tensor(seq).long()[None].cuda(),
         "msa": torch.tensor(x).long()[None].cuda(),
