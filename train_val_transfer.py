@@ -341,12 +341,12 @@ def main():
             rna_fam_names = test_dataset.rna_fam_names
             val_ppv = evaluation('val', learnable_model, val_dataloader, writer, epoch, args, rna_fam_names)
             if val_ppv > best_ppv:
-                if not os.path.exists('saved_models/val/'):
-                    os.makedirs('saved_models/val/')
+                if not os.path.exists('saved_models/train_val/'):
+                    os.makedirs('saved_models/train_val/')
                 best_ppv = val_ppv
                 test_ppv = evaluation('test', learnable_model, test_dataloader, writer, epoch, args, rna_fam_names)
                 state_dict = copy.deepcopy(learnable_model.state_dict())
-                torch.save(state_dict, 'saved_models/val/%s.chk'%current_time)     ##### save the model
+                torch.save(state_dict, 'saved_models/train_val/%s.chk'%current_time)     ##### save the model
 
     learnable_model.load_state_dict(state_dict, strict=True)
     args.N = 1

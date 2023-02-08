@@ -41,10 +41,11 @@ The outputs are saved as `outputs/dist.txt` and `outputs/pred.txt`.
 
 We use the [train/val](RNA_DATASET/) and [testing](RNA_TESTSET/) datasets from [coconet](https://github.com/KIT-MBS/coconet).
 
-The training scripts will be released soon.
+The training and evaluation scripts are released.
 - [x] `preprocess_msa.py`
 - [x] `preprocess_feat.py`
 - [x] `train_val_transfer.py`
+- [x] `eval_transfer.py`
 
 You will first need to translate RNA MSA from nucleotide to amino acids. For example, from `AUCG` to `HETL`.
 ```bash
@@ -81,6 +82,11 @@ or you can simply run `bash run_experiments.sh`. Note that our training supports
 The trained models are saved in `saved_models/` and the training logs are stored in `tensorboard_dir/`. Check [this](https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server) for how to visualize training/testing loss/curve on your local machine. Besides, training logs will also be printed in your terminal.
 
 On our single RTX-A6000, training 500 epochs with batch 16 takes about 90 min and consumes about 20GB GPU memory. This should give a rough guideline on different hardware setups to run our experiments.
+
+The trained models can be evaluated (e.g., change `MIN_LR`, `BSZ` and `EPOCH` to 0.0, 4, 500) by
+```bash
+python eval_transfer.py --model_path "saved_models/train_val/CosineLR-0.001-MIN_LR-BSZ-EPOCH.chk"
+```
 
 ## License
 Our work is built on two prior works [coevolution_transformer](https://github.com/microsoft/ProteinFolding/tree/main/coevolution_transformer) and [coconet](https://github.com/KIT-MBS/coconet), both are MIT licensed.
