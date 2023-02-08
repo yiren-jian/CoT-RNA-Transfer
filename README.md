@@ -38,6 +38,9 @@ python run_inference.py --input_MSA RNA_TESTSET/MSA_pydca/RF00001.faclean
 The outputs are saved as `outputs/dist.txt` and `outputs/pred.txt`.
 
 ## Training our transfer learning model
+
+We use the [train/val](RNA_DATASET/) and [testing](RNA_TESTSET/) datasets from [coconet](https://github.com/KIT-MBS/coconet).
+
 The training scripts will be released soon.
 - [x] `preprocess_msa.py`
 - [x] `preprocess_feat.py`
