@@ -26,7 +26,7 @@ git clone https://github.com/yiren-jian/CoT-RNA-Transfer.git
 cd CoT-RNA-Transfer
 ```
 
-## Inference using Our Pre-trained Model
+## Inference using our pre-trained model
 
 Here we provide an example of using our pretrained model for inference. The input is a RNA MSA (see [examples](RNA_TESTSET/MSA_pydca)) and the output is predicted contact scores.
 ```bash
@@ -35,7 +35,7 @@ python run_inference.py --input_MSA RNA_TESTSET/MSA_pydca/RF00001.faclean
 
 The outputs are saved as `outputs/dist.txt` and `outputs/pred.txt`.
 
-## Training Our RNA Transfer Model
+## Training our transfer learning model
 The training scripts will be released soon.
 - [x] `preprocess_msa.py`
 - [x] `preprocess_feat.py`
@@ -74,7 +74,7 @@ done
 ```
 or you can simply run `bash run_experiments.sh`. Note that our training supports multi-GPUs, i.e., you can use `CUDA_VISIBLE_DEVICES=0`, `CUDA_VISIBLE_DEVICES=0,1,2,3` or `CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7` depending on how many GPUs you have (want to use).
 
-The trained models are saved in `saved_models/` and the training logs are stored in `tensorboard_dir/`.  Check [this](https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server) for how to visualize training/testing loss/curve on your local machine.
+The trained models are saved in `saved_models/` and the training logs are stored in `tensorboard_dir/`. Check [this](https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server) for how to visualize training/testing loss/curve on your local machine. Besides, training logs will also be printed in your terminal.
 
 On our single RTX-A6000, training 500 epochs with batch 16 takes about 90 min and consumes about 20GB GPU memory. This should give a rough guideline on different hardware setups to run our experiments.
 
