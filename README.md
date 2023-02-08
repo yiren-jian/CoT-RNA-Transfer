@@ -45,7 +45,6 @@ The training scripts will be released soon.
 - [x] `preprocess_msa.py`
 - [x] `preprocess_feat.py`
 - [x] `train_val_transfer.py`
-- [ ] `eval_transfer.py`
 
 You will first need to translate RNA MSA from nucleotide to amino acids. For example, from `AUCG` to `HETL`.
 ```bash
