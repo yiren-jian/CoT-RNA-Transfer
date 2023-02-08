@@ -3,13 +3,13 @@ This is a joint work by [Yiren Jian](https://cs.dartmouth.edu/~yirenjian/), [Cho
 
 ## Requirements
 
-In this repo, we provide the script and model for running inference (testing). Any machines with a CPU and an Ubuntu system should work. The GPU is not required for inference. Assuming you have [Anaconda](https://www.anaconda.com/) installed, or you can do
+In this repo, we provide the script and model for running inference (testing). Any machines with a CPU and an Ubuntu system should work. The GPU is not required for inference. Assuming you have [Anaconda](https://www.anaconda.com/) installed (then skip the following two commands), or you can do
 ```bash
 wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
 bash Anaconda3-2021.05-Linux-x86_64.sh
 ```
 
-After that, you will need two major software packages: `pytorch` and `pydca`. The following commands will create a virtual environment and install the necessary packages.
+After that, you will need two major software packages: `pytorch` and `pydca`. The following commands will create a virtual environment and install the necessary packages. Note that we install the GPU version of PyTorch (`torch==1.8.1+cu11`) for training purpose.
 
 ```bash
 conda create -n pytorch-1.8 python=3.7
@@ -20,7 +20,13 @@ pip install pydca
 pip install tensorboard
 ```
 
-## Usage
+Finally, clone (download) this repository to your local machine
+```bash
+git clone https://github.com/yiren-jian/CoT-RNA-Transfer.git
+cd CoT-RNA-Transfer
+```
+
+## Inference using Our Pre-trained Model
 
 Here we provide an example of using our pretrained model for inference. The input is a RNA MSA (see [examples](RNA_TESTSET/MSA_pydca)) and the output is predicted contact scores.
 ```bash
@@ -29,7 +35,7 @@ python run_inference.py --input_MSA RNA_TESTSET/MSA_pydca/RF00001.faclean
 
 The outputs are saved as `outputs/dist.txt` and `outputs/pred.txt`.
 
-## Training
+## Training Our RNA Transfer Model
 The training scripts will be released soon.
 - [x] `preprocess_msa.py`
 - [x] `preprocess_feat.py`
@@ -53,7 +59,7 @@ RNA_DATASET_PDB_FEATS.pickle
 RNA_TESTSET_PDB_FEATS.pickle
 ```
 
-The following script will train the model on the training set, pick the best model based on validation, and finally evaluate on the testing set.
+The following script will train models (by searching hyper-parameters `EPOCH` and `BATCH_SIZE`) on the training set, pick the best model based on validation, and finally evaluate on the testing set.
 ```bash
 for MIN_LR in 0.0
 do
@@ -66,9 +72,11 @@ do
     done
 done
 ```
-or simply run `bash run_experiments.sh`.
+or you can simply run `bash run_experiments.sh`. Note that our training supports multi-GPUs, i.e., you can use `CUDA_VISIBLE_DEVICES=0`, `CUDA_VISIBLE_DEVICES=0,1,2,3` or `CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7` depending on how many GPUs you have (want to use).
 
 The trained models are saved in `saved_models/` and the training logs are stored in `tensorboard_dir/`.  Check [this](https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server) for how to visualize training/testing loss/curve on your local machine.
+
+On our single RTX-A6000, training 500 epochs with batch 16 takes about 90 min and consumes about 20GB GPU memory. This should give a rough guideline on different hardware setups to run our experiments.
 
 ## License
 Our work is built on two prior works [coevolution_transformer](https://github.com/microsoft/ProteinFolding/tree/main/coevolution_transformer) and [coconet](https://github.com/KIT-MBS/coconet), both are MIT licensed.
