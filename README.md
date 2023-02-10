@@ -5,7 +5,11 @@ This is a joint work by [Yiren Jian](https://cs.dartmouth.edu/~yirenjian/), [Cho
 
 ## Requirements
 
-In this repo, we provide the script and model for running inference (testing). Any machines with a CPU and an Ubuntu system should work. The GPU is not required for inference. Assuming you have [Anaconda](https://www.anaconda.com/) installed (then skip the following two commands), or you can do
+In this repo:
+- We provide the script and model for running inference (testing). Any machines with a CPU and an Ubuntu system should work. The GPU is not required for inference.
+- We also provide code and instructions for training models. A GPU is required for training.
+
+We recommend using Anaconda to create a virtual environment for this project. Assuming you have [Anaconda](https://www.anaconda.com/) installed (then skip the following two commands), or you can do
 ```bash
 wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
 bash Anaconda3-2021.05-Linux-x86_64.sh
@@ -37,7 +41,7 @@ python run_inference.py --input_MSA RNA_TESTSET/MSA_pydca/RF00001.faclean
 
 The outputs are saved as `outputs/dist.txt` and `outputs/pred.txt`.
 
-## Training our transfer learning model
+## Training our models
 
 We use the [train/val](RNA_DATASET/) and [testing](RNA_TESTSET/) datasets from [coconet](https://github.com/KIT-MBS/coconet).
 
