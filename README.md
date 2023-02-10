@@ -94,3 +94,9 @@ python eval_transfer.py --model_path "saved_models/train_val/CosineLR-0.001-MIN_
 
 ## License
 Our work is built on two prior works [coevolution_transformer](https://github.com/microsoft/ProteinFolding/tree/main/coevolution_transformer) and [coconet](https://github.com/KIT-MBS/coconet), both are MIT licensed.
+
+## Acknowlegements
+We would like to thank authors of [coevolution_transformer](https://github.com/microsoft/ProteinFolding/tree/main/coevolution_transformer) for providing pre-trained protein CoT, and [coconet](https://github.com/KIT-MBS/coconet) for providing RNA datasets.
+
+- Zhang, He, Fusong Ju, Jianwei Zhu, Liang He, Bin Shao, Nanning Zheng, and Tie-Yan Liu. "Co-evolution transformer for protein contact prediction." Advances in Neural Information Processing Systems 34 (2021): 14252-14263.
+- Zerihun, Mehari B., Fabrizio Pucci, and Alexander Schug. "CoCoNet—boosting RNA contact prediction by convolutional neural networks." Nucleic acids research 49, no. 22 (2021): 12661-12672.
