@@ -1,5 +1,5 @@
 ## Knowledge from Large-Scale Protein Contact Prediction Models can be Transferred to the Data-Scarce RNA Contact Prediction Task
-This is a joint work by [Yiren Jian](https://cs.dartmouth.edu/~yirenjian/), [Chongyang Gao](https://gcyzsl.github.io/), [Chen Zeng](https://physics.columbian.gwu.edu/chen-zeng), [Yunjie Zhao](http://zhaoserver.com.cn/index.html) and [Soroush Vosoughi](https://www.cs.dartmouth.edu/~soroush/). The paper is under review.
+This is a joint work by [Yiren Jian](https://cs.dartmouth.edu/~yirenjian/), [Chongyang Gao](https://gcyzsl.github.io/), [Chen Zeng](https://physics.columbian.gwu.edu/chen-zeng), [Yunjie Zhao](http://zhaoserver.com.cn/index.html) and [Soroush Vosoughi](https://www.cs.dartmouth.edu/~soroush/). **The [paper](https://arxiv.org/abs/2302.06120)** is under review.
 
 <img src="overview.png" width="400">
 
@@ -100,3 +100,19 @@ We would like to thank authors of [coevolution_transformer](https://github.com/m
 
 - Zhang, He, Fusong Ju, Jianwei Zhu, Liang He, Bin Shao, Nanning Zheng, and Tie-Yan Liu. "Co-evolution transformer for protein contact prediction." Advances in Neural Information Processing Systems 34 (2021): 14252-14263.
 - Zerihun, Mehari B., Fabrizio Pucci, and Alexander Schug. "CoCoNet—boosting RNA contact prediction by convolutional neural networks." Nucleic acids research 49, no. 22 (2021): 12661-12672.
+
+## Citation
+If you find the paper/repo useful for your research, please consider citing our paper.
+
+```bibtex
+@misc{https://doi.org/10.48550/arxiv.2302.06120,
+  doi = {10.48550/ARXIV.2302.06120},
+  url = {https://arxiv.org/abs/2302.06120},
+  author = {Jian, Yiren and Gao, Chongyang and Zeng, Chen and Zhao, Yunjie and Vosoughi, Soroush},
+  keywords = {Quantitative Methods (q-bio.QM), Machine Learning (cs.LG), FOS: Biological sciences, FOS: Biological sciences, FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Knowledge from Large-Scale Protein Contact Prediction Models Can Be Transferred to the Data-Scarce RNA Contact Prediction Task},
+  publisher = {arXiv},
+  year = {2023},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+```
