@@ -1,4 +1,4 @@
-for MIN_LR in 0.0
+for MIN_LR in 0.0 0.0005
 do
     for EPOCH in 100 300 500
     do

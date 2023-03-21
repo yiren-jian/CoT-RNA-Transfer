@@ -70,7 +70,7 @@ RNA_TESTSET_PDB_FEATS.pickle
 
 The following script will train models (by searching hyper-parameters `EPOCH` and `BATCH_SIZE`) on the training set, pick the best model based on validation, and finally evaluate on the testing set.
 ```bash
-for MIN_LR in 0.0
+for MIN_LR in 0.0 0.0005
 do
     for EPOCH in 100 300 500
     do
