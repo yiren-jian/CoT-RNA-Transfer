@@ -58,7 +58,7 @@ python preprocess_msa.py --AminoAcids "HETL"
 
 Next, `preprocess_feats.py` will pre-extract CoT features from different layers (inputs to the transfer model) and ground truth RNA contacts from PDBs (as ground truth labels).
 ```bash
-python preprocess_feats.py
+CUDA_VISIBLE_DEVICES=0 python preprocess_feats.py
 ```
 This process can take about 30 minutes, outputting four pickle files.
 ```
@@ -76,7 +76,7 @@ do
     do
         for BATCH_SIZE in 4 8 12 16
         do
-            CUDA_VISIBLE_DEVICES=0,1,2,3 python train_val_transfer.py --scheduler_type 'CosineLR' --min_lr $MIN_LR --batch_size $BATCH_SIZE --total_epoch $EPOCH --feature_list 0 1 2 3 4 5 6
+            CUDA_VISIBLE_DEVICES=0 python train_val_transfer.py --scheduler_type 'CosineLR' --min_lr $MIN_LR --batch_size $BATCH_SIZE --total_epoch $EPOCH --feature_list 0 1 2 3 4 5 6
         done
     done
 done
