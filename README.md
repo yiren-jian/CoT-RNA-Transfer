@@ -51,9 +51,16 @@ The training and evaluation scripts are released.
 - [x] `train_val_transfer.py`
 - [x] `eval_transfer.py`
 
-You will first need to translate RNA MSA from nucleotide to amino acids. For example, from `AUCG` to `HETL`.
+You will first need to translate/map RNA MSA from nucleotide to amino acids. For example, `AUCG` to `HETL`, which is investigated in our main results. Additionally, we find even better mappings, e.g., `KDQG`, `KDNU`, `RSKY` or `SDYK` in our ablation studies.
 ```bash
 python preprocess_msa.py --AminoAcids "HETL"
+```
+Or choose one of following commands.
+```bash
+# python preprocess_msa.py --AminoAcids "KDQG"
+# python preprocess_msa.py --AminoAcids "KDNU"
+# python preprocess_msa.py --AminoAcids "RSKY"
+# python preprocess_msa.py --AminoAcids "SDYK"
 ```
 
 Next, `preprocess_feats.py` will pre-extract CoT features from different layers (inputs to the transfer model) and ground truth RNA contacts from PDBs (as ground truth labels).
