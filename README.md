@@ -1,6 +1,4 @@
-## Knowledge from Large-Scale Protein Contact Prediction Models can be Transferred to the Data-Scarce RNA Contact Prediction Task
-This is a joint work by [Yiren Jian](https://cs.dartmouth.edu/~yirenjian/), [Chongyang Gao](https://gcyzsl.github.io/), [Chen Zeng](https://physics.columbian.gwu.edu/chen-zeng), [Yunjie Zhao](http://zhaoserver.com.cn/index.html) and [Soroush Vosoughi](https://www.cs.dartmouth.edu/~soroush/). The **[paper](https://arxiv.org/abs/2302.06120)** is under review.
-
+## Tackling Data-Scarcity in RNA Contact Prediction through Transfer Learning
 <img src="overview.png" width="400">
 
 ## Requirements
@@ -26,12 +24,6 @@ pip install pydca
 pip install tensorboard
 ```
 
-Finally, clone (download) this repository to your local machine
-```bash
-git clone https://github.com/yiren-jian/CoT-RNA-Transfer.git
-cd CoT-RNA-Transfer
-```
-
 ## Inference using our pre-trained model
 
 Here we provide an example of using our pretrained model for inference. The input is a RNA MSA (see [examples](RNA_TESTSET/MSA_pydca)) and the output is predicted contact scores.
@@ -45,7 +37,7 @@ The outputs are saved as `outputs/dist.txt` and `outputs/pred.txt`.
 
 We use the [train/val](RNA_DATASET/) and [testing](RNA_TESTSET/) datasets from [coconet](https://github.com/KIT-MBS/coconet).
 
-The training and evaluation scripts are released.
+The training and evaluation scripts:
 - [x] `preprocess_msa.py`
 - [x] `preprocess_feat.py`
 - [x] `train_val_transfer.py`
@@ -99,27 +91,9 @@ The trained models can be evaluated (e.g., change `MIN_LR`, `BSZ` and `EPOCH` to
 python eval_transfer.py --model_path "saved_models/train_val/CosineLR-0.001-MIN_LR-BSZ-EPOCH.chk"
 ```
 
-## License
-Our work is built on two prior works [coevolution_transformer](https://github.com/microsoft/ProteinFolding/tree/main/coevolution_transformer) and [coconet](https://github.com/KIT-MBS/coconet), both are MIT licensed.
-
 ## Acknowlegements
 We would like to thank authors of [coevolution_transformer](https://github.com/microsoft/ProteinFolding/tree/main/coevolution_transformer) for providing pre-trained protein CoT, and [coconet](https://github.com/KIT-MBS/coconet) for providing RNA datasets.
 
 - Zhang, He, Fusong Ju, Jianwei Zhu, Liang He, Bin Shao, Nanning Zheng, and Tie-Yan Liu. "Co-evolution transformer for protein contact prediction." Advances in Neural Information Processing Systems 34 (2021): 14252-14263.
 - Zerihun, Mehari B., Fabrizio Pucci, and Alexander Schug. "CoCoNet—boosting RNA contact prediction by convolutional neural networks." Nucleic acids research 49, no. 22 (2021): 12661-12672.
 
-## Citation
-If you find the paper/repo useful for your research, please consider citing our paper.
-
-```bibtex
-@misc{https://doi.org/10.48550/arxiv.2302.06120,
-  doi = {10.48550/ARXIV.2302.06120},
-  url = {https://arxiv.org/abs/2302.06120},
-  author = {Jian, Yiren and Gao, Chongyang and Zeng, Chen and Zhao, Yunjie and Vosoughi, Soroush},
-  keywords = {Quantitative Methods (q-bio.QM), Machine Learning (cs.LG), FOS: Biological sciences, FOS: Biological sciences, FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title = {Knowledge from Large-Scale Protein Contact Prediction Models Can Be Transferred to the Data-Scarce RNA Contact Prediction Task},
-  publisher = {arXiv},
-  year = {2023},
-  copyright = {arXiv.org perpetual, non-exclusive license}
-}
-```
