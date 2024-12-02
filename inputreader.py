@@ -121,7 +121,7 @@ class InputReader:
     def read_pdb_chain_metadata(self, pdb_chain_metadata_file):
         """Reads PDB chain IDs from text file. The file should contain the RNA
         family name in the first column and the PDB chain ID(s) in the second
-        colum with multiple IDs separated by comma.
+        column with multiple IDs separated by comma.
 
         Parameters
         ----------
